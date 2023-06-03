@@ -5,7 +5,7 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode : "class",
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -17,7 +17,7 @@ module.exports = {
         }
       },
       boxShadow: {
-        "shadow-normal": "0px 1px 10px rgba(0,0,0,0.05)",
+        "normal": "0px 1px 10px rgba(0,0,0,0.05)",
       },
       borderRadius: {
         "4xl": "2rem"
@@ -26,11 +26,16 @@ module.exports = {
         "Dana": "Dana",
         "DanaMedium": "Dana Medium",
         "DanaDemiBold": "Dana DemiBold",
-        "MorabbaLigth":"Morabba Ligth",
-        "MorabbaMedium":"Morabba Medium",
-        "MorabbaBold":"Morabba Bold",
+        "MorabbaLigth": "Morabba Ligth",
+        "MorabbaMedium": "Morabba Medium",
+        "MorabbaBold": "Morabba Bold",
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      addVariant('child', '& > *');
+      addVariant('child-hover', '& > *:hover')
+    }
+  ],
 }

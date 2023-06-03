@@ -11,8 +11,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fa" dir='rtl'  >
-      <body className="font-Dana bg-gray-100 dark:bg-zinc-800">
+    <html lang="fa" dir='rtl'   >
+      <body className="font-Dana bg-gray-100 dark:bg-zinc-800 bg-cover">
         <Header />
         {children}
       </body>

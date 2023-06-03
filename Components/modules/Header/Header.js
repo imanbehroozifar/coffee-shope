@@ -5,43 +5,31 @@ import Link from "next/link"
 
 const Header = () => {
     return (
-        <header className="  h-24 w-[90%] bg-black/50  mx-auto px-10 py-5 rounded-3xl flex items-center fixed top-9 left-0 right-0">
+        <header className="  h-24 w-[90%] bg-black/50  mx-auto px-10 py-5 rounded-3xl flex items-center fixed top-9 left-0 right-0 backdrop-blur-[6px]">
             <div className=" w-full flex justify-between items-center  ">
                 {/* logo and menu */}
-                <nav className="flex items-center gap-9">
+                <nav className="flex items-center gap-9 h-14">
                     {/* logo */}
                     <div>
                         <img src="images/app-logo.png" alt="golden coffee" />
                     </div>
                     {/* menu */}
-                    <ul className="flex gap-x-9 text-xl text-gray-300">
+                    <ul className="flex gap-x-9 text-xl text-gray-300  h-full items-center child: leading-[56px]  ">
                         <li className="text-orange-200">
                             <Link href='#'>صفحه اصلی</Link>
                         </li>
                         {/* has sub menu */}
-                        <li>
-                            <Link href='#'>فروشگاه</Link>
+                        <li className="relative group">
+                            <Link href='#' className="group-hover:text-orange-300 transition-colors">فروشگاه</Link>
                             {/* sum menu */}
-                            <ul className="hidden">
-                                <li>
+                            <div className="absolute top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible w-52 p-6 space-y-4 text-zinc-700 dark:text-white text-base bg-white dark:bg-zinc-700 rounded-2xl tracking-normal shadow-normal border-t-[3px] border-t-orange-300 transition-all child:block child:transition-colors child-hover:text-orange-300 ">
                                     <Link href='#'>قهوه ویژه</Link>
-                                </li>
-                                <li>
                                     <Link href='#'>ویژه در سطح جهانی</Link>
-                                </li>
-                                <li>
                                     <Link href='#'>قهوه درجه یک</Link>
-                                </li>
-                                <li>
                                     <Link href='#'>ترکیبات تجاری</Link>
-                                </li>
-                                <li>
                                     <Link href='#'>کپسول قهوه</Link>
-                                </li>
-                                <li>
                                     <Link href='#'>قهوه زینو برزیلی</Link>
-                                </li>
-                            </ul>
+                            </div>
                         </li>
 
                         <li>
