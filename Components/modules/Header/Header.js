@@ -1,9 +1,34 @@
+"use client"
 import ArrowLeftOnRectangle from "@/Components/icons/ArrowLeftOnRectangle"
 import Moon from "@/Components/icons/Moon"
 import Shope from "@/Components/icons/Shope"
+import Sun from "@/Components/icons/Sun"
 import Link from "next/link"
+import { useEffect, useState } from "react"
 
 const Header = () => {
+    const [isDark, setIsDark] = useState(false)
+    useEffect(() => {
+        if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+            setIsDark(true)
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+      })
+    const darkModeHandler = () => {
+        console.log(isDark)
+        if (localStorage.theme === 'dark') {
+            document.documentElement.classList.remove('dark')
+            localStorage.theme = 'ligth'
+            setIsDark(false)
+        } else {
+            document.documentElement.classList.add('dark')
+            localStorage.setItem("theme", "dark")
+            setIsDark(true)
+        }
+        console.log(isDark)
+    }
     return (
         <header className="  h-24 w-[90%] bg-black/50  mx-auto px-10 py-5 rounded-3xl flex items-center fixed top-9 left-0 right-0 backdrop-blur-[6px]">
             <div className=" w-full flex justify-between items-center  ">
@@ -22,13 +47,13 @@ const Header = () => {
                         <li className="relative group">
                             <Link href='#' className="group-hover:text-orange-300 transition-colors">فروشگاه</Link>
                             {/* sum menu */}
-                            <div className="absolute top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible w-52 p-6 space-y-4 text-zinc-700 dark:text-white text-base bg-white dark:bg-zinc-700 rounded-2xl tracking-normal shadow-normal border-t-[3px] border-t-orange-300 transition-all child:block child:transition-colors child-hover:text-orange-300 ">
-                                    <Link href='#'>قهوه ویژه</Link>
-                                    <Link href='#'>ویژه در سطح جهانی</Link>
-                                    <Link href='#'>قهوه درجه یک</Link>
-                                    <Link href='#'>ترکیبات تجاری</Link>
-                                    <Link href='#'>کپسول قهوه</Link>
-                                    <Link href='#'>قهوه زینو برزیلی</Link>
+                            <div className="absolute top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible w-52 p-6 space-y-4 text-zinc-700 dark:text-white text-base bg-white dark:bg-zinc-700 rounded-2xl tracking-normal shadow-normal border-t-[3px] border-t-orange-300 transition-all child:inline-block child:transition-colors child-hover:text-orange-300 ">
+                                <Link href='#'>قهوه ویژه</Link>
+                                <Link href='#'>ویژه در سطح جهانی</Link>
+                                <Link href='#'>قهوه درجه یک</Link>
+                                <Link href='#'>ترکیبات تجاری</Link>
+                                <Link href='#'>کپسول قهوه</Link>
+                                <Link href='#'>قهوه زینو برزیلی</Link>
                             </div>
                         </li>
 
@@ -46,14 +71,21 @@ const Header = () => {
                     <div className="flex items-center gap-5">
                         {/* card */}
                         <div>
-                            <svg className=" w-8 h-8">
-                                <Shope />
-                            </svg>
+                            {/* card icon hover */}
+                            <div className="py-3">
+                                <svg className=" w-8 h-8">
+                                    <Shope />
+                                </svg>
+                            </div>
+                            {/* card box */}
+                            <div></div>
                         </div>
                         {/* theme */}
-                        <div>
+                        <div onClick={darkModeHandler}>
                             <svg className="w-8 h-8">
-                                <Moon />
+                                {
+                                    isDark ? <Moon /> : <Sun />
+                                }
                             </svg>
                         </div>
                     </div>
