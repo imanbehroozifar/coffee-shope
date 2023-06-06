@@ -5,6 +5,7 @@ import Shope from "@/Components/icons/Shope"
 import Sun from "@/Components/icons/Sun"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import Card from "../Card/Card"
 
 const Header = () => {
     const [isDark, setIsDark] = useState(false)
@@ -47,7 +48,7 @@ const Header = () => {
                         <li className="relative group">
                             <Link href='#' className="group-hover:text-orange-300 transition-colors">فروشگاه</Link>
                             {/* sum menu */}
-                            <div className="absolute top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible w-52 p-6 space-y-4 text-zinc-700 dark:text-white text-base bg-white dark:bg-zinc-700 rounded-2xl tracking-normal shadow-normal border-t-[3px] border-t-orange-300 transition-all child:inline-block child:transition-colors child-hover:text-orange-300 ">
+                            <div className="absolute top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible w-52 p-6 space-y-4 text-zinc-700 dark:text-white text-base bg-white dark:bg-zinc-700 rounded-2xl tracking-normal shadow-normal border-t-[3px] border-t-orange-300 transition-all child:inline-block child:transition-colors child-hover:text-orange-300 delay-75 ">
                                 <Link href='#'>قهوه ویژه</Link>
                                 <Link href='#'>ویژه در سطح جهانی</Link>
                                 <Link href='#'>قهوه درجه یک</Link>
@@ -70,15 +71,15 @@ const Header = () => {
                     {/* cad icon & theme switch btn  */}
                     <div className="flex items-center gap-5">
                         {/* card */}
-                        <div>
+                        <div className="relative group">
                             {/* card icon hover */}
-                            <div className="py-3">
+                            <div className="py-3 cursor-pointer">
                                 <svg className=" w-8 h-8">
                                     <Shope />
                                 </svg>
                             </div>
                             {/* card box */}
-                            <div></div>
+                            <Card/>
                         </div>
                         {/* theme */}
                         <div onClick={darkModeHandler}>
