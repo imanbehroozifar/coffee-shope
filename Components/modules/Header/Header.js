@@ -14,9 +14,9 @@ const Header = () => {
             document.documentElement.classList.add('dark')
             setIsDark(true)
         } else {
-          document.documentElement.classList.remove('dark')
+            document.documentElement.classList.remove('dark')
         }
-      })
+    })
     const darkModeHandler = () => {
         console.log(isDark)
         if (localStorage.theme === 'dark') {
@@ -31,16 +31,16 @@ const Header = () => {
         console.log(isDark)
     }
     return (
-        <header className="  h-24 w-[90%] bg-black/50  mx-auto px-10 py-5 rounded-3xl flex items-center fixed top-9 left-0 right-0 backdrop-blur-[6px]">
+        <header className=" fixed  top-9 left-0 right-0 hidden  md:flex items-center h-24 w-[95%] lg:w-[90%] bg-black/50  mx-auto px-5 lg:px-10 py-5 rounded-3xl   backdrop-blur-[6px]">
             <div className=" w-full flex justify-between items-center  ">
                 {/* logo and menu */}
-                <nav className="flex items-center gap-9 h-14">
+                <nav className="flex items-center gap-x-5 lg:gap-x-9 h-14">
                     {/* logo */}
-                    <div>
+                    <div className="shrink-0">
                         <img src="images/app-logo.png" alt="golden coffee" />
                     </div>
                     {/* menu */}
-                    <ul className="flex gap-x-9 text-xl text-gray-300  h-full items-center child: leading-[56px]  ">
+                    <ul className="flex gap-x-5 lg:gap-x-9 text-xl text-gray-300  h-full items-center child: leading-[56px]  ">
                         <li className="text-orange-200">
                             <Link href='#'>صفحه اصلی</Link>
                         </li>
@@ -67,9 +67,9 @@ const Header = () => {
                     </ul>
                 </nav>
                 {/* card & theme & login Link  */}
-                <div className="flex gap-x-10 text-orange-200 text-xl">
+                <div className="flex gap-x-4 lg:gap-x-5 xl:gap-x-10 text-orange-200 text-xl">
                     {/* cad icon & theme switch btn  */}
-                    <div className="flex items-center gap-5">
+                    <div className="flex items-center gap-x-4 lg:gap-x-5">
                         {/* card */}
                         <div className="relative group">
                             {/* card icon hover */}
@@ -79,7 +79,7 @@ const Header = () => {
                                 </svg>
                             </div>
                             {/* card box */}
-                            <Card/>
+                            <Card />
                         </div>
                         {/* theme */}
                         <div onClick={darkModeHandler}>
@@ -97,7 +97,7 @@ const Header = () => {
                         <svg className=" w-8 h-8 rotate-180">
                             <ArrowLeftOnRectangle />
                         </svg>
-                        <span>
+                        <span className="hidden xl:inline-block">
                             ورود | ثبت‌نام
                         </span>
                     </Link>
